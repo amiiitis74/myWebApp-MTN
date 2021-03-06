@@ -31,13 +31,13 @@
                             </thead>
                             <tbody>      
                                 <?php 
-                                    $sel_sql="SELECT *, users.tel_number AS ut 
-                                    FROM complaints JOIN users ON complaints.user_id = users.id";
+                                    $sel_sql="SELECT *,complaints.id AS cid , users.tel_number AS ut 
+                                    FROM complaints , users WHERE complaints.user_id = users.id ORDER BY cid";
                                     $run = mysqli_query($conn,$sel_sql);
                                     while($rows = mysqli_fetch_assoc($run)){    
                                             echo '
                                             <tr>   
-                                                <td>'.$rows['id'].'</td>
+                                                <td>'.$rows['cid'].'</td>
                                                 <td>'.$rows['title'].'</td>
                                                 <td>'.$rows['content'].'</td>
                                                 <td>'.$rows['net_type'].'</td>
