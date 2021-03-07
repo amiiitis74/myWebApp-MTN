@@ -1,7 +1,49 @@
 
-/****** body *******/
+/****** cards *******/
+.myCards{
+    min-width: 350px;
+}
+
+.dash-card-header a{
+    color: white;   
+}
+
+.dash-card-header:hover{ 
+    cursor: pointer;
+}
+
+.allNet:hover{
+     background-color: #009973; 
+}
+
+.allNet{  
+     background-color:#00cc99;
+}
 
 
+.allUs:hover{
+     background-color:#ffaa00;
+}
+
+.allUs{
+     background-color:#ffcc66;
+}
+
+
+.allRe:hover{
+     background-color:#ff471a;
+}
+
+.allRe{
+     background-color:#ff704d;
+}
+
+
+
+.dash-card-header{
+    color:white;
+    font-size: 20px;
+}
 
 
 /****** Map *******/

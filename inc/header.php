@@ -12,11 +12,11 @@
         
         <nav class="navbar navbar-dark bg-dark justify-content-between">
             <div>
-                <img src="./img/antenna-white.png" style="width:30px;height:30px;margin-bottom:7px;"/> <a class="navbar-brand" style="color:white;"> Navbar</a>
+                <img src="./img/antenna-white.png" style="width:30px;height:30px;margin-bottom:7px;"/> <a class="navbar-brand" style="color:white;"> Signal Tracker </a>
             </div> 
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"> Logout </a>
+                    <a class="nav-link" href="#"><i class="fa fa-power-off" ></i> Logout</a>
                 </li>
             </ul>
         </nav>

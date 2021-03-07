@@ -12,7 +12,7 @@
              <div class="row" >
                 <?php include './inc/sidebar.php' ?>
                 <!-- Main content start --> 
-                <div class="col-sm-10">
+                <div class="col-md-10">
                     <?php echo $error;?>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Reports on map</h1>

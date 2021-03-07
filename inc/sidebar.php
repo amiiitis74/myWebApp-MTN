@@ -1,5 +1,4 @@
-    
-            <div class="col-md-2"  id="mySidebarCol">     
+                <div class="col-md-2"  id="mySidebarCol">     
                     <ul class="nav flex-column navbar-light" id="mySidebarUl">
                         <li class="nav-item sidebarItem">
                             <a class="nav-link active" href="../index.php"><img class="sidebarImg" src="./img/png24/dashboard-1288244.png" style="width:24px;height:24px;"/>Dashboard</a>
@@ -24,5 +23,5 @@
                         </li>
                     </ul>
                 </div>
-
             <!-- Sidebar end -->
+    
