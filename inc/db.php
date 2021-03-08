@@ -5,12 +5,14 @@ $password ='9371642007shap';
 $db = 'signaltracker';  
 
 $conn = mysqli_connect($server, $username , $password, $db);
+$show_error= false;
 
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
     $error_txt = 'Database Connection Failed';
     $alert_type = 'warning';
+    $show_error=true;
 }
     $error_txt = 'Database Connection Successfull';
     $alert_type = 'success';

@@ -2,6 +2,7 @@
 /****** cards *******/
 .myCards{
     min-width: 350px;
+    margin-top: 2%;
 }
 
 .dash-card-header a{
@@ -36,6 +37,37 @@
 
 .allRe{
      background-color:#ff704d;
+}
+
+
+
+
+.allUn:hover{
+     background-color:#0047b3;
+}
+
+.allUn{
+     background-color:#0066ff;
+}
+
+
+
+.allIn:hover{
+     background-color:#8c1aff;
+}
+
+.allIn{
+     background-color:#a64dff;
+}
+
+
+
+.allAd:hover{
+     background-color:#006666;
+}
+
+.allAd{
+     background-color:#009999;
 }
 
 

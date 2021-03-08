@@ -10,7 +10,7 @@
               <?php include './inc/sidebar.php' ?>  
                 <!-- Main content start --> 
                 <div class="col-sm-10">
-                    <!--<?php echo $error;?>-->
+                    <?php if($show_error== true) {echo $error;}?>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">All Users</h1>
                         <a href="view_allUsers.php"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
