@@ -23,7 +23,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <img src="img/png96/exclamation-mark-1214332.png">
+                                            <img src="img/png96/layer-1214322.png">
                                         </div>
                                         <div class="col-sm-8" style="padding-top:3%;padding-bottom:3%">
                                             <?php $run_re=mysqli_query($conn,"SELECT count(*) FROM complaints");
@@ -87,7 +87,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <img src="img/png96/cancel-1214345.png">
+                                            <img src="img/png96/exclamation-mark-1214332.png">
                                         </div>
                                         <div class="col-sm-8" style="padding-top:3%;padding-bottom:3%">
                                             <?php $run_re=mysqli_query($conn,"SELECT count(*) FROM complaints WHERE status !='checked'");

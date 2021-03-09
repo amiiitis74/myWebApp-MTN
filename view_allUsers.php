@@ -20,17 +20,22 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Phone Number</th>
+                                <th>Number of Complaints</th>
                             </tr>
                         </thead>
                         <tbody>      
                             <?php 
                                 $sel_sql="SELECT * FROM users";
                                 $run = mysqli_query($conn,$sel_sql);
-                                while($rows = mysqli_fetch_assoc($run)){    
+                                while($rows = mysqli_fetch_assoc($run)){  
+                                    $count_q="SELECT count(*) FROM complaints AS c WHERE c.user_id = '$rows[id]'";
+                                    $run_count_q=mysqli_query($conn,$count_q);
+                                    $number_rows=mysqli_fetch_array($run_count_q);
                                         echo '
                                         <tr>   
                                             <td>'.$rows['id'].'</td>
                                             <td>'.$rows['tel_number'].'</td>
+                                            <td>'.$number_rows[0].'</td>
                                         </tr>   
                                         ';
                                 }                                                                

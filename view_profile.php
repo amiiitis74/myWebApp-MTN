@@ -21,27 +21,23 @@
                         while($adrows = mysqli_fetch_assoc($run_ad)){ echo '
                     <div class="card">
                         <div class="card-header" style="background-color:#17A2B8;color:white;">
-                        Admin'.$adrows['id'].'
+                        <span>Admin'.$adrows['id'].'</span>
                         </div>  
-                        <div class="card-body">
+                        <div class="card-body">    
                             <table class="table">
-                                <tbody>      
-
-                                                
-                                                <tr> 
-                                                    <td> Name </td>  
-                                                    <td>  </td>
-                                                </tr>
-                                                <tr> 
-                                                    <td> Phone Number </td>  
-                                                    <td>  </td>
-                                                </tr> 
-                                                <tr> 
-                                                    <td> Email Address </td>  
-                                                    <td>'.$adrows['email'].'</td>
-                                                </tr> 
-                                                
-                                      
+                                <tbody>                   
+                                    <tr> 
+                                        <td> Name </td>  
+                                        <td>  </td>
+                                    </tr>
+                                    <tr> 
+                                        <td> Phone Number </td>  
+                                        <td>  </td>
+                                    </tr> 
+                                    <tr> 
+                                        <td> Email Address </td>  
+                                        <td>'.$adrows['email'].'</td>
+                                    </tr>     
                                 </tbody>
                             </table>
                         </div>

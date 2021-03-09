@@ -47,6 +47,8 @@
                         <div class="col-md-6">
                             <div class="card" > 
                               <div class="card-body">
+                                <h5 class="card-title">Complaint id:</h5>
+                                <p class="card-text"><?php echo $rows['id'];?></p>
                                 <h5 class="card-title">Title:</h5>
                                 <p class="card-text"><?php echo $rows['title'];?></p>
                                 <h5 class="card-title">Content:</h5>
