@@ -25,14 +25,14 @@
                 $src = "'./img/loc/white.png'";
             }
             echo "
-            [".$row['longitude'].",".$row['latitude'].",".$src." ],
+            [".$row['longitude'].",".$row['latitude'].",".$src.",'".$row['net_type']."','".$row['title']."','".$row['content']."','".$row['id']."','".$row['status']."' ],
             ";
-        }
-        
+        }       
   
     echo ']; ';
 ?>
 
+    
     //center of the map
     var center = ol.proj.fromLonLat([51.4626601, 35.6977833]);
 
@@ -56,13 +56,15 @@
         var iconStyle = new ol.style.Style({
             image: new ol.style.Icon({
               src: places[i][2],
-              color: places[i][3],
               crossOrigin: 'anonymous',
             })
         });
+                                        
+        iconFeature.setProperties({'lat':places[i][1],'lon':places[i][0],'net':places[i][3],'title':places[i][4],'content':places[i][5],'id':places[i][6],'status':places[i][7]});
         iconFeature.setStyle(iconStyle);
         vectorSource.addFeature(iconFeature);
     }
+                                      
 
 
     var vectorLayer = new ol.layer.Vector({
@@ -85,4 +87,64 @@
       ],
       loadTilesWhileAnimating: true,
     });
+                                      
+
+                                      
+    //Initialize the popup                                    
+     var container = document.getElementById('popup');
+     var popupContent = document.getElementById('popup-content');
+     var closer = document.getElementById('popup-closer');
+
+     var overlay = new ol.Overlay({
+         element: container,
+         autoPan: true,
+         autoPanAnimation: {
+             duration: 250
+         }
+     });
+     map.addOverlay(overlay);
+
+     closer.onclick = function() {
+         overlay.setPosition(undefined);
+         closer.blur();
+         return false;
+     };
+
+
+    //function to open the popup
+    map.on('singleclick', function (event) {
+         var netType,title,content,id,status,lat,lon = "undefined";  
+         if (map.hasFeatureAtPixel(event.pixel) === true) {                         
+             var coordinate = event.coordinate;
+             var feature = map.forEachFeatureAtPixel(event.pixel,
+                 function(feature, layer) {
+                   netType = feature.get('net');                        
+                   title =  feature.get('title');                        
+                   content =  feature.get('content');                        
+                   id =  feature.get('id'); 
+                   lat = feature.get('lat');                   
+                   lon = feature.get('lon');                   
+                   status = feature.get('status');                   
+                   return [feature, layer];   
+                 });                             
+             popupContent.innerHTML = "<b>".concat(title,"</b><br />",netType);
+             overlay.setPosition(coordinate);
+         } else {
+             overlay.setPosition(undefined);
+             closer.blur();
+         }
+         
+         //show details in table                             
+         document.getElementById('com_id').innerHTML= id ;
+         document.getElementById('com_title').innerHTML= title ;
+         document.getElementById('com_content').innerHTML= content ;
+         document.getElementById('com_net').innerHTML= netType ;
+         document.getElementById('com_loc').innerHTML= "".concat(lat," , ",lon);
+         document.getElementById('com_str').innerHTML= content ;
+         document.getElementById('com_status').innerHTML= status ;
+                                      
+                                      
+     });
+    
+                                      
 </script>

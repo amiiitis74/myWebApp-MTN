@@ -25,7 +25,7 @@
                             <div id="popup" class="ol-popup">
                                  <a href="#" id="popup-closer" class="ol-popup-closer"></a>
                                  <div id="popup-content"></div>
-                            </div> 
+                            </div>
                             <!-- map end-->
                         </div>
                     </div>   
@@ -34,7 +34,7 @@
                     
                     
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                 <h1 class="h2">Markers Guide</h1>
                             </div>
@@ -94,6 +94,37 @@
                                 </tbody>
                             </table>
                             <!-- Guide End -->
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                                <h1 class="h2">Marker Info</h1>
+                            </div>
+                            <div class="row">
+                                 <div class="col-md-4">
+                                    <div class="card" > 
+                                      <div class="card-body">
+                                        <h5 class="card-title">Complaint id:</h5>
+                                        <p class="card-text" id="com_id"></p>
+                                        <h5 class="card-title">Title:</h5>
+                                        <p class="card-text" id="com_title"></p>
+                                        <h5 class="card-title">Content:</h5>
+                                        <p class="card-text" id="com_content"></p>
+                                      </div> 
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card" >   
+                                      <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><span class="font-weight-bold">Network Type: </span><p id="com_net"></p></li>
+                                          <li class="list-group-item"><span class="font-weight-bold"> Location (lat,lon) : </span><p id="com_loc"></p></li>
+                                          <li class="list-group-item"><span class="font-weight-bold"> Signal Strength: </span><p id="com_str"></p></li>
+                                      </ul>
+                                      <div class="card-body">
+                                        <span class="font-weight-bold">Current Status: </span><p id="com_status"></p>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                     
