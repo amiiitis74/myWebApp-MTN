@@ -25,7 +25,7 @@
                 $src = "'./img/loc/white.png'";
             }
             echo "
-            [".$row['longitude'].",".$row['latitude'].",".$src.",'".$row['net_type']."','".$row['title']."','".$row['content']."','".$row['id']."','".$row['status']."' ],
+            [".$row['longitude'].",".$row['latitude'].",".$src.",'".$row['net_type']."','".$row['title']."','".$row['content']."','".$row['id']."','".$row['status']."','".$row['signal_str']."' ],
             ";
         }       
   
@@ -39,7 +39,7 @@
     //define the view
     var view = new ol.View({
       center: center,
-      zoom: 6// 5
+      zoom: 8
     });
 
     //vector source for markers locations
@@ -60,7 +60,7 @@
             })
         });
                                         
-        iconFeature.setProperties({'lat':places[i][1],'lon':places[i][0],'net':places[i][3],'title':places[i][4],'content':places[i][5],'id':places[i][6],'status':places[i][7]});
+        iconFeature.setProperties({'lat':places[i][1],'lon':places[i][0],'net':places[i][3],'title':places[i][4],'content':places[i][5],'id':places[i][6],'status':places[i][7],'str':places[i][8]});
         iconFeature.setStyle(iconStyle);
         vectorSource.addFeature(iconFeature);
     }
@@ -113,7 +113,7 @@
 
     //function to open the popup
     map.on('singleclick', function (event) {
-         var netType,title,content,id,status,lat,lon = "undefined";  
+         var netType,title,content,id,status,lat,lon,str = "undefined";  
          if (map.hasFeatureAtPixel(event.pixel) === true) {                         
              var coordinate = event.coordinate;
              var feature = map.forEachFeatureAtPixel(event.pixel,
@@ -124,10 +124,11 @@
                    id =  feature.get('id'); 
                    lat = feature.get('lat');                   
                    lon = feature.get('lon');                   
+                   str = feature.get('str');                   
                    status = feature.get('status');                   
                    return [feature, layer];   
                  });                             
-             popupContent.innerHTML = "<b>".concat(title,"</b><br />",netType);
+             popupContent.innerHTML = "<b>".concat(title,"</b><br />",netType,"<br />",lat," , ",lon);
              overlay.setPosition(coordinate);
          } else {
              overlay.setPosition(undefined);
@@ -140,9 +141,10 @@
          document.getElementById('com_content').innerHTML= content ;
          document.getElementById('com_net').innerHTML= netType ;
          document.getElementById('com_loc').innerHTML= "".concat(lat," , ",lon);
-         document.getElementById('com_str').innerHTML= content ;
+         document.getElementById('com_str').innerHTML= str.concat(" dbm");
          document.getElementById('com_status').innerHTML= status ;
-                                      
+         document.getElementById('edit_btn').innerHTML= "<li class='list-group-item'><a href='edit_status.php?edit_id=".concat(id,"' class='btn btn-success '> Edit Status </a></li>")  ;
+         document.getElementById('del_btn').innerHTML= "<li class='list-group-item'><a href='edit_status.php?edit_id=".concat(id,"' class='btn btn-success '> Delete Marker </a></li>")  ;                             
                                       
      });
     

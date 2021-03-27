@@ -1,3 +1,22 @@
+/****** body *******/
+body{
+    margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /****** cards *******/
 .myCards{
@@ -132,6 +151,14 @@
   }
 
 
+.c_info{
+    cursor: pointer;
+}
+
+
+
+
+
 /***** alerts ******/
 .alert{
     padding: 0.25rem 1.25rem;
@@ -193,16 +220,20 @@
 footer{ 
     background-color:#343a40;
     width: 100%;
-    padding-top:30px;
-    padding-bottom:30px;
-    margin-top: 100px;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top: 300px;
     z-index: 100;
+    position: fixed;
+    bottom: 0;
 }
 
 #createdBy{
     text-decoration: none;
     
 }
+
+
 
 
 

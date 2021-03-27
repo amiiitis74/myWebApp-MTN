@@ -1,4 +1,21 @@
-<?php include './inc/db.php' ?>
+<?php include './inc/db.php' ;
+    session_start();
+    if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+        $admin_sql="SELECT * FROM signaltracker.admin WHERE signaltracker.admin.email='$_SESSION[email]' AND signaltracker.admin.password='$_SESSION[pass]'";
+        if($admin_run = mysqli_query($conn,$admin_sql)){
+            while($adminRows = mysqli_fetch_assoc($admin_run)){
+                if(mysqli_num_rows($admin_run) == 1){
+                                    
+                }else{
+                    header('Location: ./registeration.php');
+                }
+            }
+        } 
+    }else{
+        header('Location: ./registeration.php');
+    }
+
+?>
 <?php $latitude=''; $longitude=''; ?>
 
 
@@ -36,59 +53,49 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                                <h1 class="h2">Markers Guide</h1>
+                                <h1 class="h2">Guide</h1>
                             </div>
                             <!-- Guide Start -->
                             <table class="table table-hover table-sm">
                                 <thead class="thead-light">
                                     <th>Icon</th>
-                                    <th>Color</th>
                                     <th>Network Type</th>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><img src="./img/loc/sharp-green.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Sharp Green </td>
                                         <td> LTE </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/dark-blue.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Dark Blue </td>
                                         <td> 3G (Including: CDMA, HSUPA, UMTS) </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/light-blue.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Light Blue </td>
                                         <td> 4G (Including: HSDPA, HSPA) </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/red.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Red </td>
                                         <td> EDGE (2.75G) </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/orange.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Orange </td>
                                         <td> EVDO (Including: EVDO_0, EVDO_A, EVDO_B)  </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/yellow.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Yellow </td>
                                         <td> GPRS (2.5G) </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/green.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Green </td>
                                         <td> EHRPD </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/purple.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> Purple </td>
                                         <td> IDEN </td>
                                     </tr>
                                     <tr>
                                         <td><img src="./img/loc/white.png" style="width:30px;height:30px;padding:5px;" /></td>
-                                        <td> White </td>
                                         <td> Unknown Network </td>
                                     </tr>
                                 </tbody>
@@ -97,31 +104,29 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                                <h1 class="h2">Marker Info</h1>
+                                <h1 class="h2">Marker Datails <span  class="fa fa-question-circle"  data-toggle="tooltip" title="Click on any marker on the map to see the details."></span></h1>
                             </div>
                             <div class="row">
                                  <div class="col-md-4">
                                     <div class="card" > 
                                       <div class="card-body">
-                                        <h5 class="card-title">Complaint id:</h5>
-                                        <p class="card-text" id="com_id"></p>
-                                        <h5 class="card-title">Title:</h5>
-                                        <p class="card-text" id="com_title"></p>
-                                        <h5 class="card-title">Content:</h5>
-                                        <p class="card-text" id="com_content"></p>
+                                        <p class="card-text c_info" data-toggle="tooltip" title="Complaint ID"><span class="fa fa-tag"></span> <span id="com_id" >Id</span></p>
+                                        <p class="card-text c_info" data-toggle="tooltip" title="Network Type"><span class="fa fa-signal"></span> <span id="com_net" >Network type</span></p>
+                                        <p class="card-text c_info" data-toggle="tooltip" title="Latitude,Longitude"><span class="fa fa-map-marker"></span> <span id="com_loc">Location</span></p>
+                                        <p class="card-text c_info" data-toggle="tooltip" title="Signal Strength"><span class="fa fa-flash"></span> <span id="com_str">Strength</span></p>
+                                        <p class="card-text c_info" data-toggle="tooltip" title="Status"><span class="fa fa-bookmark"></span> <span id="com_status">Status</span></p>
                                       </div> 
+                                      <ul class="list-group list-group-flush" id="edit_btn">
+                                        
+                                      </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card" >   
                                       <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><span class="font-weight-bold">Network Type: </span><p id="com_net"></p></li>
-                                          <li class="list-group-item"><span class="font-weight-bold"> Location (lat,lon) : </span><p id="com_loc"></p></li>
-                                          <li class="list-group-item"><span class="font-weight-bold"> Signal Strength: </span><p id="com_str"></p></li>
+                                        <li class="list-group-item"><span class="font-weight-bold">Title </span><p id="com_title"></p></li>
+                                          <li class="list-group-item"><span class="font-weight-bold"> Content </span><p id="com_content"></p></li>     
                                       </ul>
-                                      <div class="card-body">
-                                        <span class="font-weight-bold">Current Status: </span><p id="com_status"></p>
-                                      </div>
                                     </div>
                                 </div>
                             </div> 

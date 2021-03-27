@@ -1,4 +1,23 @@
-<?php include './inc/db.php' ?>
+<?php include './inc/db.php' ;
+    session_start();
+    if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+        $admin_sql="SELECT * FROM signaltracker.admin WHERE signaltracker.admin.email='$_SESSION[email]' AND signaltracker.admin.password='$_SESSION[pass]'";
+        if($admin_run = mysqli_query($conn,$admin_sql)){
+            while($adminRows = mysqli_fetch_assoc($admin_run)){
+                if(mysqli_num_rows($admin_run) == 1){
+                    $adminEmail =$adminRows['email'];                 
+                    $adminName =$adminRows['name'];                 
+                    $adminPhone =$adminRows['phone'];                 
+                }else{
+                    header('Location: ./registeration.php');
+                }
+            }
+        } 
+    }else{
+        header('Location: ./registeration.php');
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">   
@@ -142,48 +161,33 @@
                                 <a href="view_profile.php" class="card-link"><h5 class="card-header dash-card-header allAd">View all admins <i class="fa fa-angle-right"></i></h5></a>
                             </div>
                         </div>
-                    </div> 
-                    
-                    
-                    
+                    </div>    
                     <!--Cards End -->
                     
-                    
-                    
-                    
-                    
-                    
+
                     
                     <!--Summery start -->
                     <div class="row" style="margin-top:5%;">
                         <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                            Admin Profile
+                            Your Profile
                             </div>  
                             <div class="card-body">
                                 <table class="table">
-                                    <tbody>      
-                                        <?php 
-                                            $sel_ad="SELECT * FROM signaltracker.admin";
-                                            $run_ad = mysqli_query($conn,$sel_ad);
-                                            while($adrows = mysqli_fetch_assoc($run_ad)){    
-                                                    echo '
-                                                    <tr> 
-                                                        <td class="font-weight-bold"> Name </td>  
-                                                        <td>  </td>
-                                                    </tr>
-                                                    <tr> 
-                                                        <td class="font-weight-bold"> Phone Number </td>  
-                                                        <td>  </td>
-                                                    </tr> 
-                                                    <tr> 
-                                                        <td class="font-weight-bold"> Email Address </td>  
-                                                        <td>'.$adrows['email'].'</td>
-                                                    </tr> 
-                                                    ';
-                                            }                                                                
-                                            ?>
+                                    <tbody>           
+                                        <tr> 
+                                            <td class="font-weight-bold"> Name </td>  
+                                            <td><?php echo $adminName;?></td>
+                                        </tr>
+                                        <tr> 
+                                            <td class="font-weight-bold"> Phone Number </td>  
+                                            <td><?php echo $adminPhone;?></td>
+                                        </tr> 
+                                        <tr> 
+                                            <td class="font-weight-bold"> Email Address </td>  
+                                            <td><?php echo $adminEmail;?></td>
+                                        </tr>                  
                                     </tbody>
                                 </table>
                                 <a href="view_profile.php" class="btn btn-info">Go to profile</a>
