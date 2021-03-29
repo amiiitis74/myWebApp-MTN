@@ -1,8 +1,14 @@
 /****** body *******/
 body{
-    margin-bottom: 100px;
+    height: 100vh;
+    margin-bottom: 5rem;
 }
 
+#myContainer{
+
+    margin: 0;
+    
+}
 
 
 
@@ -159,6 +165,7 @@ body{
 
 
 
+
 /***** alerts ******/
 .alert{
     padding: 0.25rem 1.25rem;
@@ -178,15 +185,10 @@ body{
     color: black;
 }
 
-
-#mySidebarUl{
-    padding-left: 2%;
-    
-}
-
 #mySidebarCol{
     padding-left:0;
-    height: 100%;
+    background-color: rgba(0,0,0,.03);
+    height: 150vh;
 }
 
 .sidebarItem a{
@@ -199,16 +201,18 @@ body{
     margin-bottom: 5px;
     margin-right: 5px;
 }
-    
-@media screen and (min-width:900px){
-    #mySidebarUl{
-        height:700px;
-        padding-top: 70px;
+ 
+
+@media screen and (min-width:600px){
+    #mySidebarCol{
+        padding-top: 20px;
     }
 }
 
-@media screen and (max-width:899px){
-    #mySidebarUl{
+
+@media screen and (max-width:599px){
+    #mySidebarCol{
+        height: 400px;
         background-color: #F8F9FA;
         padding-top: 20px;
     }
@@ -216,23 +220,14 @@ body{
 
 
 
+
 /****** Footer ******/
-footer{ 
-    background-color:#343a40;
-    width: 100%;
-    padding-top:20px;
-    padding-bottom:20px;
-    margin-top: 300px;
-    z-index: 100;
-    position: fixed;
-    bottom: 0;
+.footer{
+    background-color: #343a40;
+    text-align: center;
+    padding: 1.5rem;
+    color: lightgray;
 }
-
-#createdBy{
-    text-decoration: none;
-    
-}
-
 
 
 

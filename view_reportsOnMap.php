@@ -25,8 +25,8 @@
     
         <!-- Sidebar start -->
 
-         <div class="container-fluid" >
-             <div class="row" >
+         <div class="container-fluid"  id="myContainer">
+             <div class="row">
                 <?php include './inc/sidebar.php' ?>
                 <!-- Main content start --> 
                 <div class="col-md-10">
@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                                <h1 class="h2">Guide</h1>
+                                <h4>Guide</h4>
                             </div>
                             <!-- Guide Start -->
                             <table class="table table-hover table-sm">
@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                                <h1 class="h2">Marker Datails <span  class="fa fa-question-circle"  data-toggle="tooltip" title="Click on any marker on the map to see the details."></span></h1>
+                                <h4>Marker Datails <span  class="fa fa-question-circle"  data-toggle="tooltip" title="Click on any marker on the map to see the details."></span></h4>
                             </div>
                             <div class="row">
                                  <div class="col-md-4">
@@ -137,12 +137,14 @@
                  </div>
                  <!-- Main content end -->
              </div>
+              <!-- footer -->
+            <?php include './inc/footer.php' ?>
         </div>
      
     
         
     
-    <?php include './inc/footer.php' ?>
+    <?php include './inc/scripts.php' ?>
     <?php include 'showmarkers.php' ?>
     </body>
     

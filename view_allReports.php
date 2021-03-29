@@ -22,8 +22,8 @@
     <?php include './inc/header.php' ?>
     
         <!-- Sidebar start -->
-        <div class="container-fluid">
-            <div class="row" >
+        <div class="container-fluid"  id="myContainer">
+            <div class="row"  >
               <?php include './inc/sidebar.php' ?>  
                 <!-- Main content start --> 
                 <div class="col-sm-10">
@@ -82,8 +82,10 @@
                 </div>
                 <!-- Main content end --> 
             </div>
+             <!-- footer -->
+            <?php include './inc/footer.php' ?>
         </div>
-    <?php include './inc/footer.php' ?>
+    <?php include './inc/scripts.php' ?>
     </body>
 </html>
             

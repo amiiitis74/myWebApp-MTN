@@ -24,9 +24,9 @@
     <?php include './inc/header.php' ?>
     
         <!-- Sidebar start -->
-        <div class="container-fluid">
-            <div class="row" >
-              <?php include './inc/sidebar.php' ?>  
+        <div class="container-fluid" id="myContainer">
+            <div class="row">
+              <?php include './inc/sidebar.php' ?>   
                 <!-- Main content start --> 
                 <div class="col-md-10">
                     <?php if($show_error== true) {echo $error;}?>
@@ -132,7 +132,7 @@
                                             $re_rows = mysqli_fetch_array($run_re);
                                             echo '<h5 class="card-title">'.$re_rows[0].'</h5>';
                                             ?> 
-                                            <h6 class="card-subtitle mb-2 text-muted">Under Investigation Reports</h6>
+                                            <h6 class="card-subtitle mb-2 text-muted">Under Investigation</h6>
                                         </div>
                                     </div>       
                                 </div>
@@ -167,7 +167,7 @@
 
                     
                     <!--Summery start -->
-                    <div class="row" style="margin-top:5%;">
+                    <div class="row" style="margin-top:5%;margin-bottom:5%;">
                         <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
@@ -197,15 +197,19 @@
             
                     </div>
                     <!--Summery End -->
-                    
+
+                    </div>
+                    <!-- Main content end --> 
                 </div>
-                <!-- Main content end --> 
-            </div>
             
+            
+            <!-- footer -->
+            <?php include './inc/footer.php' ?>
         </div>
-    
-    <?php include './inc/footer.php' ?>
+
+    <?php include './inc/scripts.php' ?>
     </body>
+    
 </html>
             
         
