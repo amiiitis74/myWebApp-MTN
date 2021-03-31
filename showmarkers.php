@@ -128,7 +128,7 @@
                    status = feature.get('status');                   
                    return [feature, layer];   
                  });                             
-             popupContent.innerHTML = "<b>".concat(title,"</b><br />",netType,"<br />",lat," , ",lon);
+             popupContent.innerHTML = "<b>".concat(title,"</b><br />",netType,"<br />",lat," , ",lon,"<a href='#markerDetails' class='btn btn-info smallBtn'>View</a>"," ","<a href='#' data-href='view_reportsOnMap.php?del_id=",id,"' class='btn btn-danger smallBtn' data-toggle='modal' data-target='#confirm-delete'>Delete</a>");
              overlay.setPosition(coordinate);
          } else {
              overlay.setPosition(undefined);

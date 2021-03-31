@@ -17,7 +17,23 @@
 
 ?>
 <?php $latitude=''; $longitude=''; ?>
+ <?php 
+    $show_error= false;
+    if (isset($_GET['del_id'])){
+        
+        $del_sql = "DELETE FROM complaints WHERE complaints.id='$_GET[del_id]'";
+        if(mysqli_query($conn,$del_sql)){
+            header('Location: view_reportsOnMap.php');
+        }else{
+            $error = '<div class="alert alert-danger alert-dismissible fade show">The query was not working.<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button></div>';
+            $show_error= true;
+        }
 
+    }       
+    
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">   
@@ -48,6 +64,30 @@
                     </div>   
                     
                     
+                    <!--Modal start-->
+                    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Confirm Delete</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <p>You are about to delete one complaint and all of it's details, this procedure is irreversible.</p>
+                                    <p>Do you want to proceed?</p>
+                                    <p class="debug-url"></p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-danger btn-ok">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--modal end-->
                     
                     
                     <div class="row">
@@ -106,7 +146,7 @@
                             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                 <h4>Marker Datails <span  class="fa fa-question-circle"  data-toggle="tooltip" title="Click on any marker on the map to see the details."></span></h4>
                             </div>
-                            <div class="row">
+                            <div class="row" id="markerDetails">
                                  <div class="col-md-4">
                                     <div class="card" > 
                                       <div class="card-body">
@@ -145,6 +185,13 @@
         
     
     <?php include './inc/scripts.php' ?>
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            
+            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    </script>
     <?php include 'showmarkers.php' ?>
     </body>
     

@@ -12,15 +12,19 @@ body{
 
 
 
+/********header**********/
+#logoutMenu a:hover{
+    color: #17a2b8;
+}
 
 
 
-
-
-
-
-
-
+/*********Reports table***********/
+.smallBtn{
+    font-size: 0.75em;
+    padding: 0.1em 0.4em;
+    text-align: center;    
+}
 
 
 
@@ -195,31 +199,49 @@ body{
     color: black;
 }
 .sidebarItem a:hover{
-    color: gray;
+    color: #17a2b8;
 }
 .sidebarImg{
     margin-bottom: 5px;
     margin-right: 5px;
 }
  
+.hide{
+    display: none;
+}
 
-@media screen and (min-width:600px){
+/*normal wide screen*/
+@media screen and (min-width:989px){
     #mySidebarCol{
         padding-top: 20px;
+    } 
+    .dropbtn{
+        display: none;
+    }
+    
+    .hiddenSidebarUl{
+        display: none;
     }
 }
 
 
-@media screen and (max-width:599px){
+/*small screen*/
+@media screen and (max-width:990px){
     #mySidebarCol{
         height: 400px;
         background-color: #F8F9FA;
-        padding-top: 20px;
+        padding-top: 20px; 
+        display: none;
     }
+    
+    .dropbtn{
+         display: inline-block;
+         cursor: pointer;
+    }
+    
+    
+    
 }
-
-
-
 
 /****** Footer ******/
 .footer{
