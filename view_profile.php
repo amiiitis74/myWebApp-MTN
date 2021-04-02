@@ -42,22 +42,48 @@
                                 Your Profile
                                 </div>  
                                 <div class="card-body">
-                                    <table class="table">
-                                        <tbody>           
-                                            <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
-                                                <td class="font-weight-bold"> Name </td>  
-                                                <td><?php echo $adminName;?></td>
-                                            </tr>
-                                            <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
-                                                <td class="font-weight-bold"> Phone Number </td>  
-                                                <td><?php echo $adminPhone;?></td>
-                                            </tr> 
-                                            <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
-                                                <td class="font-weight-bold"> Email Address </td>  
-                                                <td><?php echo $adminEmail;?></td>
-                                            </tr>                  
-                                        </tbody>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6>Name </h6>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><?php echo $adminName;?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6>Phone Number </h6>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><?php echo $adminPhone;?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h6>Email Address </h6>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><?php echo $adminEmail;?></p>
+                                        </div>
+                                    </div>
+                                    <!--<div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>           
+                                                <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
+                                                    <td class="font-weight-bold"> Name </td>  
+                                                    <td><?php echo $adminName;?></td>
+                                                </tr>
+                                                <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
+                                                    <td class="font-weight-bold"> Phone Number </td>  
+                                                    <td><?php echo $adminPhone;?></td>
+                                                </tr> 
+                                                <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
+                                                    <td class="font-weight-bold"> Email Address </td>  
+                                                    <td><?php echo $adminEmail;?></td>
+                                                </tr>                  
+                                            </tbody>
+                                        </table>
+                                    </div>-->
                                     <a href="#" class="btn btn-info wow fadeInLeft" data-wow-duration="0.5s">Edit Your Profile</a>
                                 </div>
                             </div>
@@ -68,8 +94,7 @@
                                 <div class="card-header">
                                 All Admins Info.
                                 </div>  
-                                <div class="card-body">
-                                    <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
+                                <div class="card-body">     
                                     <div class="table-responsive">
                                         <table class="table table-light table-hover table-striped" id="pager">
                                             <thead class="bg-info" style="color:white;">
@@ -98,7 +123,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-
+                                    <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
                                 </div>
                             </div>
                         </div>

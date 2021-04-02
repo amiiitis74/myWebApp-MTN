@@ -52,7 +52,7 @@
                     </div>
                     <div class="row">
                         <!-- map start -->
-                        <div class="col-sm-10">  
+                        <div class="col-lg-10">  
                             <div class="map wow fadeInUp" id="map" data-wow-duration="0.5s"></div>
                             <div id="popup" class="ol-popup">
                                  <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -61,7 +61,7 @@
                         </div>
                         <!-- map end-->
                         <!-- marker guide start-->
-                        <div class="col-sm-2 wow fadeInRight" data-wow-duration="0.5s">  
+                        <div class="col-lg-2 wow fadeInRight" data-wow-duration="0.5s">  
                             <ul class="guide-ul">
                                 <h6>Marker Guide</h6>
                                 <li class="guide-li">
@@ -79,7 +79,7 @@
                                 <li class="guide-li">
                                     <div class="guid-li-div">
                                         <img src="./img/loc/light-blue.png" style="width:30px;height:30px;padding:5px;" />
-                                        <span class="guide-span">4G <span style="font-size:0.7em;color:gray;">(HSDPA, HSPA)</span>
+                                        <span class="guide-span">4G <span style="font-size:0.7em;color:gray;">(HSDPA, HSPA)</span></span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
