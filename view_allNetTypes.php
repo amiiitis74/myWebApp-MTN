@@ -29,10 +29,12 @@
                 <div class="col-sm-10">
                     <?php if($show_error== true) {echo $error;}?>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">All Network Types</h1>
-                        <a href="view_allNetTypes.php"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
+                        <h1 class="h2 wow fadeInLeft" data-wow-duration="0.5s">All Network Types</h1>
+                        <a href="view_allNetTypes.php" class="wow fadeInRight" data-wow-duration="0.5s"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
                     </div>
-                    <table class="table table-light table-hover table-striped">
+                    <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
+                    <div class="table-responsive">
+                        <table class="table table-light table-hover table-striped" id="pager">
                             <thead class="bg-info" style="color:white;">
                                 <tr>
                                     <th>No.</th>
@@ -47,7 +49,7 @@
                                     while($rows = mysqli_fetch_assoc($run)){ 
                                         $count = $count+1;
                                             echo '
-                                            <tr>   
+                                            <tr class="wow fadeInUp" data-wow-duration="0.5s">   
                                                 <td>'.$count.'</td>
                                                 <td>'.$rows['net_type'].'</td>
                                             </tr>   
@@ -56,6 +58,8 @@
                                     ?>
                             </tbody>
                         </table>
+                    </div>
+                   
                 </div>
                 <!-- Main content end --> 
             </div>

@@ -1,13 +1,42 @@
 /****** body *******/
+html {
+  scroll-behavior: smooth;
+}
+
 body{
     height: 100vh;
     margin-bottom: 5rem;
+    /*font-size: 0.75em;*/
 }
 
 #myContainer{
 
     margin: 0;
     
+}
+
+
+
+
+/*********Pager***********/
+.pager-nav {
+    margin: 16px 0;
+}
+.pager-nav span {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 1px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.pager-nav span:hover,
+.pager-nav .pg-selected {
+    background-color: #f9f9f9;
+    border: 1px solid #CCCCCC;
 }
 
 
@@ -30,8 +59,15 @@ body{
 
 /****** cards *******/
 .myCards{
-    min-width: 350px;
+    /*min-width: 350px;*/
     margin-top: 2%;
+}
+
+.card-img{
+    width:100%;
+    max-width: 96px;
+    min-width: 50px;
+    
 }
 
 .dash-card-header a{
@@ -115,7 +151,7 @@ body{
      height: 400px;
      width: 100%;
      margin-top: 2%;
-     margin-bottom: 50px;    
+     margin-bottom: 0;
 }
 
 .ol-popup {
@@ -165,6 +201,19 @@ body{
     cursor: pointer;
 }
 
+/***** guide ******/
+.guide-ul{
+    padding: 0.5em 0;
+    margin-top: 2%;
+}
+
+.guide-span {
+    font-size: .80em;
+}
+.guide-li{
+    padding: 0 0;
+    list-style: none;    
+}
 
 
 

@@ -47,8 +47,8 @@
                 <div class="col-sm-10">
                     <?php if($show_error== true) {echo $error;}?>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">All Users</h1>
-                        <a href="view_allUsers.php"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
+                        <h1 class="h2 wow fadeInLeft" data-wow-duration="0.5s">All Users</h1>
+                        <a href="view_allUsers.php" class="wow fadeInRight" data-wow-duration="0.5s"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
                     </div>
                     
                     <!--Modal start-->
@@ -64,7 +64,7 @@
                                 <div class="modal-body">
                                     <p>You are about to delete one user and all of it's details, this procedure is irreversible.</p>
                                     <p>Do you want to proceed?</p>
-                                    <p class="debug-url"></p>
+                                    <!--<p class="debug-url"></p>-->
                                 </div>
 
                                 <div class="modal-footer">
@@ -77,94 +77,39 @@
                     <!--modal end-->
                     
                     <!-- user table start -->
-                    
-                    <table class="table table-light table-hover table-striped">
-                        <thead class="bg-info" style="color:white;">
-                            <tr>
-                                <th>No.</th>
-                                <th>Phone Number</th>
-                                <th>Number of Complaints</th>
-                                <th>Delete User</th>
-                            </tr>
-                        </thead>
-                        <tbody>      
-                            <?php 
-                                $sel_sql="SELECT * FROM users ORDER BY users.id DESC";
-                                $run = mysqli_query($conn,$sel_sql);
-                                while($rows = mysqli_fetch_assoc($run)){  
-                                    $count_q="SELECT count(*) FROM complaints AS c WHERE c.user_id = '$rows[id]'";
-                                    $run_count_q=mysqli_query($conn,$count_q);
-                                    $number_rows=mysqli_fetch_array($run_count_q);
-                                        echo '
-                                        <tr>   
-                                            <td>'.$rows['id'].'</td>
-                                            <td>'.$rows['tel_number'].'</td>
-                                            <td>'.$number_rows[0].'</td>
-                                            <td><a href="#" data-href="view_allUsers.php?del_id='.$rows['id'].'" class="btn btn-danger smallBtn" data-toggle="modal" data-target="#confirm-delete" >Delete</a></td>
-                                        </tr>   
-                                        ';
-                                }                                                                
-                                ?>
-                        </tbody>
-                    </table>
-                    <!-- user table end-->
-                    <!-- complaint table start -->
-                    <table class="table table-light table-hover table-striped">
-                            <thead class="bg-info"  style="color:white;">
+                    <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
+                    <div class="table-responsive">
+                        <table class="table table-light table-hover table-striped" id="pager">
+                            <thead class="bg-info" style="color:white;">
                                 <tr>
                                     <th>No.</th>
-                                    <th>Title</th>
-                                    <th>Content</th>
-                                    <th>Network Type</th>
-                                    <th>Signal Strength</th>
-                                    <th>Latitude</th>
-                                    <th>Longitude</th>
-                                    <th>User Phone</th>
-                                    <th>User Id</th>
-                                    <th>Status</th>
-                                    <th>Change Status</th>
-                                    <th>Delete Report</th>
+                                    <th>Phone Number</th>
+                                    <th>Number of Complaints</th>
+                                    <th>Delete User</th>
                                 </tr>
                             </thead>
                             <tbody>      
                                 <?php 
-                                    $user_id = 1;
-                                    //$sel_sql="SELECT * FROM complaints , users WHERE complaints.user_id = '$user_id' ORDER BY complaints.id DESC";
-                                    $sel_sql = "SELECT * FROM  users,complaints WHERE users.id = complaints.user_id AND users.id='$user_id' ORDER BY complaints.id DESC";
+                                    $sel_sql="SELECT * FROM users ORDER BY users.id DESC";
                                     $run = mysqli_query($conn,$sel_sql);
-                                    while($rows = mysqli_fetch_assoc($run)){ 
-                                            if(strlen($rows['content']) < 50){ 
-                                                    $content = $rows['content'];
-                                                } else{
-                                                    $content =substr($rows['content'],0,50);
-                                                }
+                                    while($rows = mysqli_fetch_assoc($run)){  
+                                        $count_q="SELECT count(*) FROM complaints AS c WHERE c.user_id = '$rows[id]'";
+                                        $run_count_q=mysqli_query($conn,$count_q);
+                                        $number_rows=mysqli_fetch_array($run_count_q);
                                             echo '
-                                            <tr>   
+                                            <tr class="wow fadeInUp" data-wow-duration="0.5s">   
                                                 <td>'.$rows['id'].'</td>
-                                                <td>'.$rows['title'].'</td>
-                                                <td>'.$content.'...</td>
-                                                <td>'.$rows['net_type'].'</td>
-                                                <td>'.$rows['signal_str'].'</td>
-                                                <td>'.$rows['latitude'].'</td>
-                                                <td>'.$rows['longitude'].'</td>
                                                 <td>'.$rows['tel_number'].'</td>
-                                                <td>'.$rows['user_id'].'</td>
-                                                <td>'.$rows['status'].'</td>
-                                                <td><a href="edit_status.php?edit_id='.$rows['id'].'" class="btn btn-success smallBtn" >View and Edit</a></td>
-                                                <td><a href="#" data-href="view_allReports.php?del_id='.$rows['id'].'" class="btn btn-danger smallBtn" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+                                                <td>'.$number_rows[0].'</td>
+                                                <td><a href="#" data-href="view_allUsers.php?del_id='.$rows['id'].'" class="btn btn-danger smallBtn" data-toggle="modal" data-target="#confirm-delete" >Delete</a></td>
                                             </tr>   
                                             ';
-                                        $latitude = $rows['latitude'];
-                                        $longitude = $rows['longitude'];
                                     }                                                                
                                     ?>
                             </tbody>
-                        
                         </table>
-                    
-                    <!--complaint table end-->
-                    
-                    
+                    </div>
+                    <!-- user table end-->   
                 </div>
                 <!-- Main content end --> 
             </div>

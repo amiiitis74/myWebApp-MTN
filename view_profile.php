@@ -31,8 +31,8 @@
                 <div class="col-sm-10">
                     <?php if($show_error== true) {echo $error;}?>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Admin Profile</h1>
-                        <a href="view_profile.php"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
+                        <h1 class="h2 wow fadeInLeft" data-wow-duration="0.5s">Admin Profile</h1>
+                        <a href="view_profile.php" class="wow fadeInRight" data-wow-duration="0.5s"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
                     </div>
                     
                     <div class="row">
@@ -44,21 +44,21 @@
                                 <div class="card-body">
                                     <table class="table">
                                         <tbody>           
-                                            <tr> 
+                                            <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
                                                 <td class="font-weight-bold"> Name </td>  
                                                 <td><?php echo $adminName;?></td>
                                             </tr>
-                                            <tr> 
+                                            <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
                                                 <td class="font-weight-bold"> Phone Number </td>  
                                                 <td><?php echo $adminPhone;?></td>
                                             </tr> 
-                                            <tr> 
+                                            <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
                                                 <td class="font-weight-bold"> Email Address </td>  
                                                 <td><?php echo $adminEmail;?></td>
                                             </tr>                  
                                         </tbody>
                                     </table>
-                                    <a href="#" class="btn btn-info">Edit Your Profile</a>
+                                    <a href="#" class="btn btn-info wow fadeInLeft" data-wow-duration="0.5s">Edit Your Profile</a>
                                 </div>
                             </div>
                         </div>
@@ -69,32 +69,36 @@
                                 All Admins Info.
                                 </div>  
                                 <div class="card-body">
-                                    <table class="table table-light table-hover table-striped">
-                                        <thead class="bg-info" style="color:white;">
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Admin Name</th>
-                                                <th>Email</th>
-                                                <th>Phone Number</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>      
-                                            <?php 
-                                                $sel_ad="SELECT * FROM signaltracker.admin";
-                                                $run_ad = mysqli_query($conn,$sel_ad);
-                                                while($adrows = mysqli_fetch_assoc($run_ad)){    
-                                                        echo '
-                                                        <tr>   
-                                                            <td>'.$adrows['id'].'</td>
-                                                            <td>'.$adrows['name'].'</td>
-                                                            <td>'.$adrows['email'].'</td>
-                                                            <td>'.$adrows['phone'].'</td>
-                                                        </tr>   
-                                                        ';
-                                                }                                                                
-                                                ?>
-                                        </tbody>
-                                    </table>
+                                    <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
+                                    <div class="table-responsive">
+                                        <table class="table table-light table-hover table-striped" id="pager">
+                                            <thead class="bg-info" style="color:white;">
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Admin Name</th>
+                                                    <th>Email</th>
+                                                    <th>Phone Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>      
+                                                <?php 
+                                                    $sel_ad="SELECT * FROM signaltracker.admin";
+                                                    $run_ad = mysqli_query($conn,$sel_ad);
+                                                    while($adrows = mysqli_fetch_assoc($run_ad)){    
+                                                            echo '
+                                                            <tr class="wow fadeInUp" data-wow-duration="0.5s">   
+                                                                <td>'.$adrows['id'].'</td>
+                                                                <td>'.$adrows['name'].'</td>
+                                                                <td>'.$adrows['email'].'</td>
+                                                                <td>'.$adrows['phone'].'</td>
+                                                            </tr>   
+                                                            ';
+                                                    }                                                                
+                                                    ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

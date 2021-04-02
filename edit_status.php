@@ -108,7 +108,9 @@
             </div>
         </div>
     <?php include './inc/footer.php' ?>
+    <?php include './inc/scripts.php' ?>
     </body>
+    
 </html>
             
         

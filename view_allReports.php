@@ -42,17 +42,17 @@
 <!DOCTYPE html>
 <html lang="en">   
     <?php include './inc/header.php' ?>
-    
+
         <!-- Sidebar start -->
         <div class="container-fluid"  id="myContainer">
-            <div class="row"  >
+            <div class="row">
               <?php include './inc/sidebar.php' ?>  
                 <!-- Main content start --> 
-                <div class="col-sm-10">
+                <div class="col-sm-10" >
                     <?php if($show_error== true) {echo $error;}?>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">All Reports</h1>
-                        <a href="view_allReports.php"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
+                        <h1 class="h2 wow fadeInLeft" data-wow-duration="0.5s">All Reports</h1>
+                        <a href="view_allReports.php" class="wow fadeInRight" data-wow-duration="0.5s"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
                     </div>
                     <!-- Table Start -->
                     
@@ -69,7 +69,7 @@
                                 <div class="modal-body">
                                     <p>You are about to delete one complaint and all of it's details, this procedure is irreversible.</p>
                                     <p>Do you want to proceed?</p>
-                                    <p class="debug-url"></p>
+                                    <!--<p class="debug-url"></p>-->
                                 </div>
 
                                 <div class="modal-footer">
@@ -80,8 +80,10 @@
                         </div>
                     </div>
                     <!--modal end-->
+                    <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
                     
-                    <table class="table table-light table-hover table-striped">
+                    <div class="table-responsive">
+                        <table class="table table-light table-hover table-striped" id="pager">
                             <thead class="bg-info"  style="color:white;">
                                 <tr>
                                     <th>No.</th>
@@ -109,7 +111,7 @@
                                                     $content =substr($rows['content'],0,50);
                                                 }
                                             echo '
-                                            <tr>   
+                                            <tr class="wow fadeInUp" data-wow-duration="0.5s">   
                                                 <td>'.$rows['cid'].'</td>
                                                 <td>'.$rows['title'].'</td>
                                                 <td>'.$content.'...</td>
@@ -128,15 +130,13 @@
                                     }                                                                
                                     ?>
                             </tbody>
-                        
                         </table>
+                    </div>
                     <!-- Table End -->
                     
-                    
-                    
                 </div>
-                <!-- Main content end --> 
-            </div>
+                <!-- Main content end -->                
+            </div>       
              <!-- footer -->
             <?php include './inc/footer.php' ?>
         </div>
@@ -148,6 +148,7 @@
             $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
         });
     </script>
+    
     </body>
 </html>
             

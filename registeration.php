@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row  h-100" >
                <div class="col-lg-4 mx-auto my-auto">
-                   <div class="card"  style="margin-top:50px;">
+                   <div class="card"  style="margin-top:50px;display:none;" id="loginFormAll">
                        <div class="card-body">
                         <div class="text-center" style="margin-bottom:50px;">
                             <p>You are loged out of the system. Please login to continue.</p>  
@@ -33,6 +33,11 @@
         </div>
     
     <?php include './inc/scripts.php' ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#loginFormAll").fadeToggle(500);
+        })
+    </script>
     </body>
 </html>
             
