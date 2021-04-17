@@ -1,18 +1,21 @@
 <?php include './inc/db.php' ;
     session_start();
-    if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+    if(isset($_SESSION['email']) && isset($_SESSION['pass'])){  
         $admin_sql="SELECT * FROM signaltracker.admin WHERE signaltracker.admin.email='$_SESSION[email]' AND signaltracker.admin.password='$_SESSION[pass]'";
         if($admin_run = mysqli_query($conn,$admin_sql)){
-            while($adminRows = mysqli_fetch_assoc($admin_run)){
-                if(mysqli_num_rows($admin_run) == 1){
+             if(mysqli_num_rows($admin_run)==1){
+                while($adminRows = mysqli_fetch_assoc($admin_run)){           
                     $adminEmail =$adminRows['email'];                 
                     $adminName =$adminRows['name'];                 
-                    $adminPhone =$adminRows['phone'];                 
-                }else{
-                    header('Location: ./registeration.php');
+                    $adminPhone =$adminRows['phone'];                
+                    $adminId =$adminRows['id'];                    
                 }
-            }
-        } 
+             }else{
+                header('Location: ./registeration.php');
+             }
+        }else{
+             header('Location: ./registeration.php');
+        }        
     }else{
         header('Location: ./registeration.php');
     }

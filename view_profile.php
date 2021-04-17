@@ -1,23 +1,48 @@
 <?php include './inc/db.php' ;
     session_start();
-    if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
+    if(isset($_SESSION['email']) && isset($_SESSION['pass'])){  
         $admin_sql="SELECT * FROM signaltracker.admin WHERE signaltracker.admin.email='$_SESSION[email]' AND signaltracker.admin.password='$_SESSION[pass]'";
         if($admin_run = mysqli_query($conn,$admin_sql)){
-            while($adminRows = mysqli_fetch_assoc($admin_run)){
-                if(mysqli_num_rows($admin_run) == 1){
+             if(mysqli_num_rows($admin_run)==1){
+                while($adminRows = mysqli_fetch_assoc($admin_run)){           
                     $adminEmail =$adminRows['email'];                 
                     $adminName =$adminRows['name'];                 
                     $adminPhone =$adminRows['phone'];                
-                }else{
-                    header('Location: ./registeration.php');
+                    $adminId =$adminRows['id'];                    
                 }
-            }
-        } 
+             }else{
+                header('Location: ./registeration.php');
+             }
+        }else{
+             header('Location: ./registeration.php');
+        }        
     }else{
         header('Location: ./registeration.php');
     }
 
 ?>
+
+
+
+<?php 
+    $show_error= false;
+        if(isset($_POST['submit-save'])){  
+                $ins_sql = "UPDATE signaltracker.admin SET email='$_POST[editEmail]', name='$_POST[editName]', phone='$_POST[editPhone]' WHERE signaltracker.admin.id='$adminId'";
+                if(mysqli_query($conn,$ins_sql)){  
+                    header('Location: view_profile.php');                  
+                }else{
+                    $error = '<div class="alert alert-danger alert-dismissible fade show">The query was not working.<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button></div>';  
+                    $show_error= true;
+                }
+            
+            
+        }        
+    ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">   
@@ -34,6 +59,49 @@
                         <h1 class="h2 wow fadeInLeft" data-wow-duration="0.5s">Admin Profile</h1>
                         <a href="view_profile.php" class="wow fadeInRight" data-wow-duration="0.5s"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
                     </div>
+                    
+                    
+                    <!--Modal start-->
+                    <div class="modal fade" id="edit-profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit your profile information.</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <label for="edit-email">Your email address:</label>
+                                            <input type="email" id="edit-email" name="editEmail" class="form-control" aria-describedby="emailHelp" value="<?php echo $adminEmail; ?>">
+                                            <small>If you change your email address, you'll be redirected to login page.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit-name">Your full name:</label>
+                                            <input type="text" id="edit-name" name="editName" class="form-control" value="<?php echo $adminName; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit-phone">Your phone number:</label>
+                                            <input type="tel" id="edit-phone" name="editPhone" class="form-control" value="<?php echo $adminPhone; ?>">
+                                        </div>
+                                       <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <a><button type="submit" name="submit-save" class="btn btn-primary">Save</button></a>
+                                           <p class="debug-url"></p>
+                                        </div>
+                                        
+                                    </form>
+                                    <!--<p class="debug-url"></p>-->
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--modal end-->
+                    
                     
                     <div class="row">
                         <div class="col-sm-5">
@@ -66,25 +134,7 @@
                                             <p><?php echo $adminEmail;?></p>
                                         </div>
                                     </div>
-                                    <!--<div class="table-responsive">
-                                        <table class="table">
-                                            <tbody>           
-                                                <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
-                                                    <td class="font-weight-bold"> Name </td>  
-                                                    <td><?php echo $adminName;?></td>
-                                                </tr>
-                                                <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
-                                                    <td class="font-weight-bold"> Phone Number </td>  
-                                                    <td><?php echo $adminPhone;?></td>
-                                                </tr> 
-                                                <tr class="wow fadeInUp" data-wow-duration="0.5s"> 
-                                                    <td class="font-weight-bold"> Email Address </td>  
-                                                    <td><?php echo $adminEmail;?></td>
-                                                </tr>                  
-                                            </tbody>
-                                        </table>
-                                    </div>-->
-                                    <a href="#" class="btn btn-info wow fadeInLeft" data-wow-duration="0.5s">Edit Your Profile</a>
+                                    <a class="btn btn-info wow fadeInLeft" data-wow-duration="0.5s" data-toggle="modal" data-target="#edit-profile">Edit Your Profile</a>
                                 </div>
                             </div>
                         </div>

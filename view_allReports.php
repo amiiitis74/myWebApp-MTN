@@ -3,13 +3,13 @@
     if(isset($_SESSION['email']) && isset($_SESSION['pass'])){
         $admin_sql="SELECT * FROM signaltracker.admin WHERE signaltracker.admin.email='$_SESSION[email]' AND signaltracker.admin.password='$_SESSION[pass]'";
         if($admin_run = mysqli_query($conn,$admin_sql)){
-            while($adminRows = mysqli_fetch_assoc($admin_run)){
-                if(mysqli_num_rows($admin_run) == 1){
-                                    
-                }else{
-                    header('Location: ./registeration.php');
-                }
+            if(mysqli_num_rows($admin_run)==1){
+
+            }else{
+                header('Location: ./registeration.php');
             }
+        }else{
+            header('Location: ./registeration.php');
         } 
     }else{
         header('Location: ./registeration.php');
@@ -54,7 +54,7 @@
                         <h1 class="h2 wow fadeInLeft" data-wow-duration="0.5s">All Reports</h1>
                         <a href="view_allReports.php" class="wow fadeInRight" data-wow-duration="0.5s"><button type="button" class="btn btn-info"  aria-pressed="false"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button></a>
                     </div>
-                    <!-- Table Start -->
+                   
                     
                     <!--Modal start-->
                     <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -82,6 +82,7 @@
                     <!--modal end-->
                     <div id="pageNavPosition" class="pager-nav wow fadeInUp" data-wow-duration="1s"></div>
                     
+                    <!-- Table Start -->
                     <div class="table-responsive">
                         <table class="table table-light table-hover table-striped" id="pager">
                             <thead class="bg-info"  style="color:white;">
