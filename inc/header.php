@@ -13,7 +13,8 @@
         
         <nav class="navbar navbar-dark bg-dark justify-content-between">
             <div>
-                <img src="../img/antenna-white.png" style="width:30px;height:30px;margin-bottom:7px;"/> <a class="navbar-brand" style="color:white;"> Signal Tracker </a><span onclick="myFunction()" class="dropbtn"><span class="fa fa-bars" style="color:white;" id="bars"></span></span>
+                <img src="../img/antenna-white.png" id="header-img"/> <a class="navbar-brand" style="color:white;"> Signal Tracker </a>
+                <span onclick="myFunction()" class="dropbtn fa fa-bars" style="color:white;" id="bars"></span>
             </div> 
             <ul class="navbar-nav">
                 <li class="nav-item active" id="logoutMenu">

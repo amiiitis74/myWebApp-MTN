@@ -1,10 +1,11 @@
+//responsive sidebar
 function myFunction() {
-  var x = document.getElementById("hiddenSide");
-  if (x.className === "nav flex-column navbar-light hiddenSidebarUl") {
-    x.className += " hide";
-  } else {
-    x.className = "nav flex-column navbar-light hiddenSidebarUl";
-  }
+    var x = document.getElementById("mySidebarCol");
+    if (x.className === "col-lg-2 sidebarCol") {
+        x.className += " responsive";
+    } else {
+        x.className = "col-lg-2 sidebarCol";
+    }
 }
 
 //SCROL SMOOTHLY

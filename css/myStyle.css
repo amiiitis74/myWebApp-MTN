@@ -1,12 +1,14 @@
-/****** body *******/
+/*******************************
+HTML and BODY
+*******************************/
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    font-size: 170%;
 }
 
 body{
     height: 100vh;
     margin-bottom: 5rem;
-    /*font-size: 0.75em;*/
 }
 
 #myContainer{
@@ -18,7 +20,9 @@ body{
 
 
 
-/*********Pager***********/
+/*******************************
+PAGER
+*******************************/
 .pager-nav {
     margin: 16px 0;
 }
@@ -27,7 +31,7 @@ body{
     padding: 4px 8px;
     margin: 1px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.75rem;
     background-color: #FFFFFF;
     border: 1px solid #e1e1e1;
     border-radius: 3px;
@@ -41,14 +45,24 @@ body{
 
 
 
-/********header**********/
+/*******************************
+HEADER
+*******************************/
 #logoutMenu a:hover{
     color: #17a2b8;
 }
 
+#header-img{
+    width:2rem;
+    height:2rem;
+    margin-bottom:0.3rem;
+}
 
 
-/*********Reports table***********/
+
+/*******************************
+REPORTS TABLE
+*******************************/
 .smallBtn{
     font-size: 0.75em;
     padding: 0.1em 0.4em;
@@ -57,7 +71,10 @@ body{
 
 
 
-/****** cards *******/
+
+/*******************************
+CARDS
+*******************************/
 .myCards{
     /*min-width: 350px;*/
     margin-top: 2%;
@@ -65,8 +82,8 @@ body{
 
 .card-img{
     width:100%;
-    max-width: 96px;
-    min-width: 50px;
+    max-width: 3.75rem;
+    min-width: 2.5rem;
     
 }
 
@@ -139,14 +156,16 @@ body{
 
 .dash-card-header{
     color:white;
-    font-size: 20px;
+    font-size: 1.10rem;
 }
 
 
 
 
 
-/****** Map *******/
+/*******************************
+MAP
+*******************************/
 .map {
      height: 400px;
      width: 100%;
@@ -215,6 +234,11 @@ body{
     list-style: none;    
 }
 
+.guide-markers{
+    width:2rem;
+    height:2rem;
+    padding:0.5rem; 
+}
 
 
 
@@ -232,16 +256,23 @@ body{
 
 
 
-
-/****** sidebar *******/
+/*******************************
+SIDE BAR
+*******************************/
 .nav-link {
     color: black;
 }
 
+.sidebarImg{
+    width:1.5rem;;
+    height:1.5rem;
+}
+
 #mySidebarCol{
+    padding-top: 1rem;
     padding-left:0;
     background-color: rgba(0,0,0,.03);
-    height: 150vh;
+   
 }
 
 .sidebarItem a{
@@ -259,40 +290,65 @@ body{
     display: none;
 }
 
-/*normal wide screen*/
-@media screen and (min-width:989px){
-    #mySidebarCol{
-        padding-top: 20px;
-    } 
-    .dropbtn{
-        display: none;
-    }
-    
-    .hiddenSidebarUl{
-        display: none;
+
+
+/*******************************
+MEDIA
+*******************************/
+@media screen and (min-width:992px){
+    html { 
+        font-size: 100%;
     }
 }
 
-
-/*small screen*/
-@media screen and (max-width:990px){
-    #mySidebarCol{
-        height: 400px;
-        background-color: #F8F9FA;
-        padding-top: 20px; 
+@media screen and (min-width:992px){ /* = 892 in chrome */
+   .dropbtn{
         display: none;
     }
     
-    .dropbtn{
-         display: inline-block;
-         cursor: pointer;
+    #mySidebarCol{
+        padding-top: 1rem;
+        padding-left:0;
+        background-color: rgba(0,0,0,.03);
+        height: 100vh;
     }
-    
-    
-    
+
 }
 
-/****** Footer ******/
+/****** responsive sidebar *******/
+@media screen and (max-width: 992px) {
+    #mySidebarCol{
+        display: none;
+    }
+    
+    #mySidebarUl li{
+        display: none;
+    }
+     
+}
+
+@media screen and (max-width: 992px) {
+    
+  #mySidebarCol.responsive {
+      position: relative;
+      display: block;
+    }
+
+  #mySidebarCol.responsive li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+ 
+}
+
+
+
+
+/*******************************
+FOOTER
+*******************************/
+
 .footer{
     background-color: #343a40;
     text-align: center;

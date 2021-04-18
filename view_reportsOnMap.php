@@ -66,55 +66,55 @@
                                 <h6>Marker Guide</h6>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/sharp-green.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/sharp-green.png" class="guide-markers" />
                                         <span class="guide-span">LTE</span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/dark-blue.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/dark-blue.png" class="guide-markers"  />
                                         <span class="guide-span">3G <span style="font-size:0.7em;color:gray;">(CDMA, HSUPA, UMTS)</span></span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/light-blue.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/light-blue.png" class="guide-markers" />
                                         <span class="guide-span">4G <span style="font-size:0.7em;color:gray;">(HSDPA, HSPA)</span></span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/red.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/red.png" class="guide-markers" />
                                         <span class="guide-span">EDGE <span style="font-size:0.7em;color:gray;">(2.75G)</span></span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/orange.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/orange.png" class="guide-markers" />
                                         <span class="guide-span">EVDO <span style="font-size:0.7em;color:gray;">(EVDO_0, EVDO_A, EVDO_B)</span></span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/yellow.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/yellow.png" class="guide-markers" />
                                         <span class="guide-span">GPRS <span style="font-size:0.7em;color:gray;">(2.5G)</span></span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/green.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/green.png" class="guide-markers" />
                                         <span class="guide-span">EHRPD</span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/purple.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/purple.png" class="guide-markers" />
                                         <span class="guide-span">IDEN</span>
                                     </div>
                                 </li>
                                 <li class="guide-li">
                                     <div class="guid-li-div">
-                                        <img src="./img/loc/white.png" style="width:30px;height:30px;padding:5px;" />
+                                        <img src="./img/loc/white.png" class="guide-markers" />
                                         <span class="guide-span">Unknown Network</span>
                                     </div>
                                 </li>
@@ -157,7 +157,7 @@
                                 <h6 class="wow fadeInUp">Marker Datails <span  class="fa fa-question-circle"  data-toggle="tooltip" title="Click on any marker on the map to see the details."></span></h6>
                             </div>
                             <div class="row" id="markerDetails">
-                                 <div class="col-md-4">
+                                 <div class="col-lg-4">
                                     <div class="card wow fadeInUp" > 
                                       <div class="card-body">
                                         <p class="card-text c_info" data-toggle="tooltip" title="Complaint ID"><span class="fa fa-tag"></span> <span id="com_id" >Id</span></p>
@@ -171,7 +171,7 @@
                                       </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-lg-8">
                                     <div class="card wow fadeInUp" >   
                                       <ul class="list-group list-group-flush">
                                         <li class="list-group-item"><span class="font-weight-bold">Title </span><p id="com_title"></p></li>
