@@ -169,8 +169,7 @@
                 </div>
             
             
-            <!-- footer -->
-            <?php include './inc/footer.php' ?>
+            
         </div>
     
     <?php include './inc/scripts.php' ?>

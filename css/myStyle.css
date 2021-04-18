@@ -58,7 +58,9 @@ HEADER
     margin-bottom:0.3rem;
 }
 
-
+#bars{
+    cursor: pointer;
+}
 
 /*******************************
 REPORTS TABLE
