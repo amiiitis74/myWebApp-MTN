@@ -1,7 +1,7 @@
 <?php
 $server ='localhost' ;
 $username = 'root';
-$password ='9371642007shap';
+$password ='password';
 $db = 'signaltracker';  
 
 $conn = mysqli_connect($server, $username , $password, $db);
